@@ -5,7 +5,7 @@ import numpy as np
 from movie_data import MovieData
 
 movie_posters_path = 'https://image.tmdb.org/t/p/w500/'
-data_path = 'data/movies_5-29-24.csv'
+data_path = 'data/movies_5-29-24.pkl'
 movies = MovieData(data_path)
 
 st.title('Movie Suggester')
@@ -21,8 +21,9 @@ if st.button('Pick a random movie'):
 # Textbox for user to enter text for similarity search and a button
 text = st.text_area('Type anything...')
 if st.button('Find similar movies'):
-    similar_movies = movies.get_similar_movies(text)
+    similar_movies, response = movies.get_similar_movies_rag(text)
     if similar_movies is not None:
+        st.write(response)
         for i, movie in similar_movies.iterrows():
             st.write(movie['title'])
             try:
