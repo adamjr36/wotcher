@@ -91,7 +91,7 @@ class MovieData:
 # PROMPT and OUTPUT FORMAT
 prompt = """
 ### CONTEXT ####
-You are an assistant for suggesting movies based on user queries. Use the following {K} retrieved movies as context to suggest {k} similar movies to the user. Use three sentences maximum in your response and keep the answer concise. Refer to movies by their title only. 
+You are an assistant for suggesting movies based on user queries. Use the following {K} retrieved movies as context to suggest up to {k} similar movies to the user. Use three sentences maximum in your response and keep the answer concise. Refer to movies by their title only. 
 
 Retrieved Movies:
 {context}
