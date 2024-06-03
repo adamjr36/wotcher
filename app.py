@@ -2,25 +2,34 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+from movie_data import MovieData
+
 movie_posters_path = 'https://image.tmdb.org/t/p/w500/'
 data_path = 'data/movies_5-29-24.csv'
+movies = MovieData(data_path)
 
-@st.cache_data
-def load_data():
-    data = pd.read_csv(data_path)
-    return data
-
-df = load_data()
-n = len(df)
 st.title('Movie Suggester')
 
 if st.button('Pick a random movie'):
-    i = np.random.randint(n)
-    random_movie = df.iloc[i]
+    random_movie = movies.get_random_movie()
     st.write(random_movie['title'])
     try:
         st.image(movie_posters_path + random_movie['poster_path'])
     except:
         pass
+
+# Textbox for user to enter text for similarity search and a button
+text = st.text_area('Type anything...')
+if st.button('Find similar movies'):
+    similar_movies = movies.get_similar_movies(text)
+    if similar_movies is not None:
+        for i, movie in similar_movies.iterrows():
+            st.write(movie['title'])
+            try:
+                st.image(movie_posters_path + movie['poster_path'])
+            except:
+                pass
+    else:
+        st.write('Something went wrong.')
 
 # text = st.text_area('Type anything...')
