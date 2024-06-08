@@ -16,7 +16,7 @@ llm_model = 'gpt-4o'
 embedding_model = 'text-embedding-3-small'
 pinecone_index = 'movies-small'
 cols = ['id', 'title', 'genres', 'original_language', 'overview', 'budget', 'revenue', 'runtime', 'tagline', 'credits', 'keywords']
-K = 7 # Num results from pinecone
+K = 10 # Num results from pinecone
 
 # MovieData class
 class MovieData:
