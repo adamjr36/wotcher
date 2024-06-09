@@ -7,7 +7,7 @@ Go to [wotcher](https://wotcher.streamlit.app/), type anything you like into the
 
 ## Data
 
-Data pulled from [Kaggle](https://www.kaggle.com/datasets/akshaypawar7/millions-of-movies/data) and downloaded as a CSV. 
+Data pulled from [Kaggle](https://www.kaggle.com/datasets/akshaypawar7/millions-of-movies/data) and downloaded as a CSV. Last updated 6/8/24.
 
 1. Some data exploration and processing is done in movies-eda.ipynb
 2. The result of that is embedded and uploaded to pinecone with process_new_movie_data.py
