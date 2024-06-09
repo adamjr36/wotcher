@@ -101,8 +101,8 @@ User Query:
 ### OUTPUT FORMAT ###:
 You must format your response as a valid JSON object as follows:
 {{
-    "ids": "[Int]", // Integer ids from the retrieved movies context
-    "response": "" // Your string response, referring to the suggested movies by title
+    "ids": "[Int]", // Integer ids from the retrieved movies context, reffering to the suggested movies by id.
+    "response": "" // Your string response, referring to the suggested movies by title.
 }}
 
 Reponse:"""
