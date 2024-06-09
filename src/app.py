@@ -1,21 +1,24 @@
 import streamlit as st
 import pandas as pd
+import os
 
 from GLOBALS import posters_path
 
 from movie_data import MovieData
 
-data_path = '../data/movies_6-8-24_min.pkl'
+# root directory
+root = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+data_path = os.path.join(root, 'data/movies_6-8-24_min.pkl')
 movies = MovieData(data_path)
 
 st.set_page_config(
     page_title='Wotcher, Harry!',
     page_icon='🧙🏼‍♂️',
-    layout='wide',
+    layout='centered',
     initial_sidebar_state='auto'
 )
 
-st.logo('../assets/wotcher.png', link='https://img.buzzfeed.com/buzzfeed-static/static/2021-04/9/0/asset/4b34c94ad75b/sub-buzz-3314-1617926736-5.png')
+st.logo(os.path.join(root, 'assets/wotcher.png'), link='https://img.buzzfeed.com/buzzfeed-static/static/2021-04/9/0/asset/4b34c94ad75b/sub-buzz-3314-1617926736-5.png')
 st.title('Wotcher, Harry!')
 st.subheader('User the textbox below to describe what you want, and I will magically suggest the best possible movies.', divider='rainbow')
 
